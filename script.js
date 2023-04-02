@@ -15,7 +15,13 @@ var lowerCase = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
 var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 var numeric = ["0","1","2","3","4","5","6","7","8","9"];
 var specialChar =["!","@","#","$","%","&","*","?"] 
-var password = "";
+
+
+var passLowerCase;
+var passUpperCase;
+var passNumeric;
+var passSpecialChar;
+var passLenght = "";
 
 function generatePassword() {
   
@@ -36,18 +42,18 @@ function generatePassword() {
    
   }
    // THEN my input should be validated and at least one character type should be selected
-   if(lowercase){
+   if(passLowerCase){
     password = password + getRandomValue(lowerCase);
    }
-   if(upperCase){
+   if(passUpperCase){
     password = password + getRandomValue(upperCase);
    }
-   if(lowercase){
+   if(passLowerCase){
     password = password + getRandomValue(numeric);
    }
-   if (upperCase){
-    password = password + getRandomValue(specialcharacters);
-   }
+   if (passUpperCase){
+    password = password + getRandomValue(specialchara);
+   
    // THEN a password is generated that matches the selected criteria
    for (let i = passwordLenght; i < length; i++) {
     password = password + getRandomValue(lowerCase);  
