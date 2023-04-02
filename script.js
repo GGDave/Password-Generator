@@ -40,39 +40,32 @@ function generatePassword() {
    var specialcharacters = confirm("Do you want special characters?");
   //pasword lenth varification, verifies that the number that was inputed was a number between 8-128
    
-  }
-   // THEN my input should be validated and at least one character type should be selected
-   if(passLowerCase){
-    password = password + getRandomValue(lowerCase);
-   }
-   if(passUpperCase){
-    password = password + getRandomValue(upperCase);
-   }
-   if(passLowerCase){
-    password = password + getRandomValue(numeric);
-   }
-   if (passUpperCase){
-    password = password + getRandomValue(specialchara);
-   
-   // THEN a password is generated that matches the selected criteria
-   for (let i = passwordLenght; i < length; i++) {
-    password = password + getRandomValue(lowerCase);  
-    password = password + getRandomValue(upperCase);
-    password = password + getRandomValue(numeric);  
-    password = password + getRandomValue(specialcharacters);
-   }
-   // THEN the password is either displayed in an alert or written to the page
-    return password.substring(0, length + 1); 
-}
-
-function getRandomValue(str) {
-  const randomIndex = Math.floor(Math.random() * str.lenght);
-  return str[randomIndex]
   
+ var passwordCharacters = []
+
+ if (passNumeric) {
+  passwordCharacters = passwordCharacters.concat(numeric)
+ }
+
+ if (passLowerCase) {
+  passwordCharacters = passwordCharacters.concat(lowerCase)
+ }
+
+ if (passUpperCase) {
+  passwordCharacters = passwordCharacters.concat(upperCase)
+ }
+
+ if (passSpecialChar) {
+  passwordCharacters = passwordCharacters.concat(specialChar)
+ }
+ console.log(passwordCharacters);
+
+ var randomPassword = ""
+
+ for (var i = 0; i < passLenght; i++) {
+  randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+  console.log(randomPassword);
+ }
+ return randomPassword;
+
 }
-
-
-
-
-
-
