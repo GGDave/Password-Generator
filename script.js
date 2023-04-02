@@ -24,21 +24,17 @@ var passSpecialChar;
 var passLenght = "";
 
 function generatePassword() {
+   passLenght = (prompt("How long would you like your password? 8-128 characters"));
+   if (parseInt(passLenght) <= 8 || parseInt(passLenght) >= 128) {
+    prompt("password lenght must be between 8-128 characters")
+  }
   
-  // THEN I am presented with a series of prompts for password criteria
-  
-  // THEN I select which criteria to include in the password
-  // WHEN prompted for the length of the password
-  // THEN I choose a length of at least 8 characters and no more than 128 characters
-   const passwordLenght = prompt ("How long would you like your password? 8-128 characters");
+  var lowerCase = confirm("Do you want lowercase?");
+  var upperCase = confirm("Do you want uppercase?");
+  var numeric = confirm("Do you want numeric?");
+  var specialChar = confirm("Do you want special characters?");
    
-   // WHEN asked for character types to include in the password
-   // THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-   var lowercase = confirm("Do you want lowercase?");
-   var upperCase = confirm("Do you want uppercase?");
-   var numeric = confirm("Do you want numeric?");
-   var specialcharacters = confirm("Do you want special characters?");
-  //pasword lenth varification, verifies that the number that was inputed was a number between 8-128
+  
    
   
  var passwordCharacters = []
