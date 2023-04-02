@@ -16,7 +16,6 @@ var upperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"
 var numeric = ["0","1","2","3","4","5","6","7","8","9"];
 var specialChar =["!","@","#","$","%","&","*","?"] 
 
-
 var passLowerCase;
 var passUpperCase;
 var passNumeric;
@@ -25,19 +24,25 @@ var passLenght = "";
 
 function generatePassword() {
    passLenght = (prompt("How long would you like your password? 8-128 characters"));
+
    if (parseInt(passLenght) <= 8 || parseInt(passLenght) >= 128) {
     prompt("password lenght must be between 8-128 characters")
   }
-  
-  var lowerCase = confirm("Do you want lowercase?");
-  var upperCase = confirm("Do you want uppercase?");
-  var numeric = confirm("Do you want numeric?");
-  var specialChar = confirm("Do you want special characters?");
+
+  var passNumeric = confirm("Do you want numeric?");
+  var passLowerCase = confirm("Do you want lowercase?");
+  var passUpperCase = confirm("Do you want uppercase?");
+  var passSpecialChar = confirm("Do you want special characters?");
+
+  if (passUpperCase == false && passLowerCase == false && passNumeric == false && passSpecialChar == false) {
+    alert("You must choose at least one parameter");
+    var passNumeric = confirm("Click OK to confirm if you would like to have numbers");
+    var passLowerCase = confirm("Click OK if you would like to have lowercase letters");
+    var passUpperCase = confirm("Click OK if you would like to have uppercase letters");
+    var passSpecialChar = confirm("Click OK if you would like to have Special Characters");
+  }
    
-  
-   
-  
- var passwordCharacters = []
+  var passwordCharacters = []
 
  if (passNumeric) {
   passwordCharacters = passwordCharacters.concat(numeric)
